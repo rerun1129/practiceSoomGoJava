@@ -2,8 +2,8 @@ package chapter06.constructor;
 
 public class Car {
     /**
-     * 보통 하나의 완전한 객체는 불변성을 내포하며 이를 통상적으로 Value Object, VO라고 부른다.
-     * 그리고 이 블변 객체에서 필요한 데이터를 옮기는데 사용하는 객체를 Data Transfer Object, DTO라고 부른다.
+     * 보통 하나의 완전한 객체는 불변성을 가져야하며 이를 통상적으로 Value Object, VO라고 부른다.
+     * 그리고 이 불변 객체에서 필요한 데이터를 옮기는데 사용하는 객체를 Data Transfer Object, DTO라고 부른다.
      * VO는 불변성을 지켜줘야 하나 DTO는 불변성에서 비교적 자유롭다.
      *
      * 여기에서 불변성이라 함은 객체의 필드 변수 즉, 프로퍼티를 setter로 고치지 않아야 한다는 것이다.

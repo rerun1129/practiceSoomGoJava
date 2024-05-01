@@ -1,6 +1,11 @@
 package chapter06.constructor;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Arrays.asList;
+
 public class OtherCar extends Car {
 
     String model;
@@ -8,15 +13,14 @@ public class OtherCar extends Car {
     int speed;
 
     private OtherCar ( String model, String color, int speed ) {
-        super ( model, color, speed );
+        super( model, color, speed );
         /**
          * super의 의미
          * super는 자신의 상위 클래스, 즉 슈퍼 클래스에 대한 지시 키워드이다.
-         * this와 같은 논리로 동작하여 super()역시 슈퍼 클래스의 생성자로 만들어진다.
+         * this와 같은 논리로 동작하며 super()역시 슈퍼 클래스의 생성자를 호출한다.
          * 서브 클래스의 생성자에서 super()가 필수인 이유는 자바 규약 상 다형성을 활용하기 위해서
          * 슈퍼 클래스의 타입으로 서브 클래스의 인스턴스를 생성하여 할당하는 경우가 있기 때문에 이로 인한 기본적인 슈퍼 클래스의 인스턴스 생성도 필요한 것이다.
          **/
-
         this.model = model;
         this.color = color;
         this.speed = speed;
@@ -26,7 +30,7 @@ public class OtherCar extends Car {
      * this()의 문제점은 생성자를 만드는 당시가 아닌 클래스 선언 시에 값을 초기화해줘야 하는데 이렇게 사용할 이유도 없을 뿐더러 생성자 내부에서
      * 초기화된 값을 생성자를 만들 당시에 알 수가 없다는 점에 있다.
      *
-     * 생성자를 효율적으로 만드는 추가적인 3가지 방법
+     * 생성자를 효율적으로 만드는 추가적인 2가지 방법
      * 1. 정적 팩토리 메서드 -> 생성자의 접근 제어자를 private으로 막고 대신 인스턴스를 생성해주는 static 메서드를 만들어서 사용한다.
      * 2. 빌더 패턴
      * */
@@ -53,7 +57,7 @@ public class OtherCar extends Car {
     }
 
     /**
-     * 3. 호출될 때 마다 인스턴스를 생성하지 않아도 된다. 이는 싱글톤 패턴과 맞닿아있는 내용인데 한번 만들어진 인스턴스를 복수로 사용하지 않아도 되는 경우에는 생성자의 인스턴스를 필드에 저장해두고
+     * 4. 호출될 때 마다 인스턴스를 생성하지 않아도 된다. 이는 싱글톤 패턴과 맞닿아있는 내용인데 한번 만들어진 인스턴스를 복수로 사용하지 않아도 되는 경우에는 생성자의 인스턴스를 필드에 저장해두고
      *    필요할때마다 생성하는 것이 아닌 꺼내서 쓰는 방법을 취할 수도 있다. 이 방법의 최대 장점은 인스턴스 생성이라는 무거운 작업을 매번 하지 않아도 된다는 점이다.
      * */
     static class CarDefaultSettings {
@@ -61,11 +65,13 @@ public class OtherCar extends Car {
 
         }
         private static final CarDefaultSettings SETTINGS = new CarDefaultSettings(); //인스턴스를 컴파일 타임에 미리 메모리에 올려놓고
+        //인스턴스 생성 시 리소스 10000이 든다.
+        //차가 하루에 3천대 나가는데 모두 기본 세팅을 하고 나가야 한다.
+        //초기 생성 리소스 10000
 
         public static CarDefaultSettings getInstance() { //필요할때는 매번 가져다 쓴다.
             return SETTINGS;
         }
-
     }
 
     /**

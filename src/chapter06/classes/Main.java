@@ -9,7 +9,13 @@ public class Main {
          * 스택에 변수로서 저장이 되며 이는 참조 타입이기 때문에 Heap 메모리 영역의 해당 번지에서 참조가 된다.
          * new의 의미를 잘 파악하고 있어야 함.
          * */
-        Car car = new Car ( );
+        Car car = new Car ( "흰색", 100, "아반떼", 200 );
+        Car car2 = new Car ( "흰색", 100, "말리부", 200 );
+
+
+
+        Person person = new Person ( car );
+        person.machine.machineColor ();
     }
 }
 
