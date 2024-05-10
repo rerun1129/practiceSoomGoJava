@@ -8,7 +8,9 @@ public class Methods {
          * 아래의 두 멤버는 단지 메서드 호출자인 -> ()에 의해서 그 쓰임이 달라지게 된다.
          * */
         callMethod.greeting = "Hi!"; //멤버 변수 -> callMethod.greeting -> 컴파일러가 변수로써 읽음
-        callMethod.greeting("Hi!");//메서드 -> callMethod.greeting( <- 이 시점에서 컴파일러가 변수로서 읽음
+        callMethod.greeting("Hi!");//메서드 -> callMethod.greeting( <- 이 시점에서 컴파일러가 메서드로서 읽음
+
+        System.out.println (  );
 
         /**
          * 위와 같이 ()을 함수의 호출자라 하며 컴파일러는 위의 코드를 기계어로 번역할 때 이렇게 번역하게 된다.

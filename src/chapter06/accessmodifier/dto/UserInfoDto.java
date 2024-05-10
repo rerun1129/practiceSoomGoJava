@@ -2,17 +2,13 @@ package chapter06.accessmodifier.dto;
 
 public class UserInfoDto {
     private String name;
-    private String registNumber;
     private String gender;
-    private String password;
     private int age;
     private long salary;
 
-    public UserInfoDto ( String name, String registNumber, String gender, String password, int age, long salary ) {
+    public UserInfoDto ( String name, String gender, int age, long salary ) {
         this.name = name;
-        this.registNumber = registNumber;
         this.gender = gender;
-        this.password = password;
         this.age = age;
         this.salary = salary;
     }
@@ -25,28 +21,12 @@ public class UserInfoDto {
         this.name = name;
     }
 
-    public String getRegistNumber ( ) {
-        return registNumber;
-    }
-
-    public void setRegistNumber ( String registNumber ) {
-        this.registNumber = registNumber;
-    }
-
     public String getGender ( ) {
         return gender;
     }
 
     public void setGender ( String gender ) {
         this.gender = gender;
-    }
-
-    public String getPassword ( ) {
-        return password;
-    }
-
-    public void setPassword ( String password ) {
-        this.password = password;
     }
 
     public int getAge ( ) {

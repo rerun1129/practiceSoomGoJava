@@ -17,13 +17,15 @@ public class Main {
         hello = ""; //참조 가능
 //        greeting = ""; //참조 불가능
 
-        System.out.println ( hi );
+        System.out.println ( lastHi );
+        notMain ();
     }
 
 
-    public void notMain(){
+    public static void notMain(){
         hello = ""; //참조 가능
-        greeting = ""; //참조 가능
+//        greeting = ""; //참조 가능
+        System.out.println ( Static.LAST_HI );
         /**
          * 비 static 블록에서 static 멤버를 참조하는 것은 가능하다.
          * Heap 메모리 보다 static 메모리가 더 빠르게 JVM에 로드되기 때문에 빠른 static 멤버들은 비 static 블록 안에서 불러들일 수 있다.

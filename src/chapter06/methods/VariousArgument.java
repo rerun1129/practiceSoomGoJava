@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class VariousArgument {
 
-    public void printVarArg(String ...vars){
+    public static void printVarArg(String ...vars){
         //가변 인자는 배열로 취급합니다.
         System.out.println ( Arrays.toString ( vars ) );
     }

@@ -1,9 +1,10 @@
 package chapter06.classmember;
 
+import java.util.List;
+
 public class Static {
     public static String hi; //[정적 변수]해당 클래스를 사용하는 모든 사용자가 같은 메모리로 바로 접근할 수 있다.
     public static final String LAST_HI = "Farewell~"; //[정적 상수]해당 클래스를 사용하는 모든 사용자가 같은 메모리로 바로 접근할 수 있고 final이기 때문에 수정이 불가능하다.
-
     /**
      * 상수의 장점
      * 1. 더이상 변경되지 않기 때문에 어디서 사용하든 동일한 값을 참조할 수 있다.

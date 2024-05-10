@@ -25,15 +25,5 @@ public class Account {
         return this.membership == membership && expDate.isAfter(now()) && serviceDate.isBefore(now ().minusYears ( 5 ));
     }
 
-    public Membership getMembership ( ) {
-        return membership;
-    }
 
-    public LocalDate getExpDate ( ) {
-        return expDate;
-    }
-
-    public LocalDate getServiceDate ( ) {
-        return serviceDate;
-    }
 }

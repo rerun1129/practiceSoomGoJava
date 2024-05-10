@@ -35,8 +35,7 @@ public class UserVo {
     }
 
     //불변성을 유지해야 하므로 Setter는 사용하지 않는다.
-
-    public static UserInfoDto toDto(UserVo user) {
-        return new UserInfoDto (user.name, user.registNumber, user.gender, user.password, user.age, user.salary);
+    public UserInfoDto toDto ( UserVo user ) {
+        return new UserInfoDto (user.name, user.gender, user.age, user.salary);
     }
 }
