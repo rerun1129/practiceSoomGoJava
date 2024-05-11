@@ -1,7 +1,7 @@
-package chapter07.composition;
+package chapter07.composition_01;
 
-import chapter07.extend.Luggage;
-import chapter07.extend.NotEnoughSpaceException;
+import chapter07.extend_01.Luggage;
+import chapter07.extend_01.NotEnoughSpaceException;
 
 import java.util.ArrayList;
 import java.util.List;

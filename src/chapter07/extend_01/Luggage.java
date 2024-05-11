@@ -1,4 +1,4 @@
-package chapter07.extend;
+package chapter07.extend_01;
 
 public class Luggage {
     private int size;
