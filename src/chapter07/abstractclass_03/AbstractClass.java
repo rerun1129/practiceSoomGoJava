@@ -18,5 +18,7 @@ public abstract class AbstractClass {
 
     protected abstract void needImplement(); //추상 메서드로 선언하면 구현 블록을 선언하면 안되고 이 시그니처대로 만들어줘야 한다.
 
-    void defaultMethod(){} //일반 메서드로 선언하면 추상 클래스 내부에서 구현 블록을 만들어서 함수가 동작하도록 해줘야 한다.
+    void defaultMethod(){
+
+    } //일반 메서드로 선언하면 추상 클래스 내부에서 구현 블록을 만들어서 함수가 동작하도록 해줘야 한다.
 }

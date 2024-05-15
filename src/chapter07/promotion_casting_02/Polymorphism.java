@@ -4,7 +4,7 @@ public class Polymorphism {
     /**
      * 다형성
      *
-     * '인스턴스는 다양한 형태를 가질 수 있는 자격이 부여된다.'
+     * '부모 인스턴스는 다양한 형태를 가질 수 있는 자격이 부여된다.'
      * 큰 바구니에 작은 물체가 들어갈 수 있지만 작은 바구니에는 큰 물체가 들어갈 수 없는 개념이다.
      * 어떠한 추상적인 개념 안에는 구체적인 개념이 들어갈 수 있는 것이다.
      * ex) Parent parent[우항에서 건네어준 자식 멤버의 정보 + 자기 자신의 부모 클래스 멤버의 정보] = new Child()[<-자식 클래스 멤버의 정보를 가지고 있다.];
@@ -37,9 +37,9 @@ public class Polymorphism {
         System.out.println ( "물고기 : " + fish.growl () );
 
         animal.inCage ( animal );
-        animal.inCage ( cat );
-        animal.inCage ( dog );
-        animal.inCage ( fish );
+        animal.inCage ( new Cat( "고양이" ) );
+        animal.inCage ( new Dog( "개" ) );
+        animal.inCage ( new Fish( "물고기" ) );
 
 
         //cat도 결국엔 Animal 타입이기 때문에 동일한 부모의 자식 클래스의 메서드를 다형성을 이용해서 활용할 수 있게 됩니다.
@@ -57,6 +57,5 @@ public class Polymorphism {
 
         //만약 walk가 Dog에만 선언된 메서드여도 매개변수의 타입이 부모 타입인 Animal이라면 Dog 타입 메서드에 Cat 타입 인스턴스가 들어가도 정상적으로 동작합니다.
         huski.walk ( bengol );
-
     }
 }

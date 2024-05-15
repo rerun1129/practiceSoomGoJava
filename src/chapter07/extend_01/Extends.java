@@ -25,10 +25,13 @@ public class Extends {
             this.maxSize = maxSize;
         }
 
-        public void put(Luggage lug) throws NotEnoughSpaceException { //여기의 put 말고 ArrayList 의 add를 사용해도 Container 에 객체를 추가할 수 있다
+        public void put(Luggage lug) throws NotEnoughSpaceException {
+            //여기의 put 말고 ArrayList 의 add를 사용해도 Container 에 객체를 추가할 수 있다
             if(!canContain(lug)) throw new NotEnoughSpaceException();
             super.add(lug);
-            currentSize += lug.getSize(); //그런데 직접 super 의 add 를 사용하게 되면 put 이 가지고 있는 위의 if 분기를 거치지 않아서 maxSize 보다 더 많은 객체가 Container 에 추가될 수 있는 문제가 있다.
+            currentSize += lug.getSize();
+            //그런데 직접 super 의 add 를 사용하게 되면 put 이 가지고 있는 위의 if 분기를 거치지 않아서
+            //maxSize 보다 더 많은 객체가 Container 에 추가될 수 있는 문제가 있다.
         }
 
         public void extract(Luggage lug){
@@ -49,7 +52,8 @@ public class Extends {
 
     /**
      * 위의 코드에서 maxSize와 currentSize를 통한 검증 로직은 부모 클래스인 ArrayList에는 없고 최대치에 대한 내용을 Container에서만 컨트롤하기 때문에
-     * 부모 타입인 ArrayList에서 리스트의 사이즈를 조절하는 메서드를 호출하면 Container내부의 필드 값 변동 없이 List 요소가 추가 및 제거되므로 논리상의 오류가 발생한다.
+     * 부모 타입인 ArrayList에서 리스트의 사이즈를 조절하는 메서드를 호출하면 Container내부의 필드 값 변동 없이 List 요소가 추가 및
+     * 제거되므로 논리상의 오류가 발생한다.
      * */
 
 }

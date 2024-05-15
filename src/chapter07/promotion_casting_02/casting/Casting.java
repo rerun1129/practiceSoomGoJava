@@ -12,7 +12,6 @@ import static chapter07.promotion_casting_02.casting.Feed.*;
 
 public class Casting {
     public static void main ( String[] args ) {
-
         /**
          * 가장 흔한 캐스팅(강제 형변환)의 사례
          * */
