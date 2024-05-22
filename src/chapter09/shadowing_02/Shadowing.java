@@ -8,7 +8,6 @@ import java.util.function.IntConsumer;
 public class Shadowing {
     private void run(){
         int baseNum = 10;
-
         class LocalClass{
             int baseNum = 11;
             void printBaseNum(){
@@ -24,6 +23,7 @@ public class Shadowing {
                  * 이를 쉐도윙이라고 하는데 컴파일러는 변수를 읽을 때 값이 변해도 안전하게 처리할 수 있고 더욱 신뢰도가 높은
                  * 가까운 변수를 먼저 읽게 된다.
                  * */
+
                 System.out.println ( baseNum );
             }
         }

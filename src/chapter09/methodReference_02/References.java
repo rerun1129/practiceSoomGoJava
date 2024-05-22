@@ -29,8 +29,10 @@ public class References {
 
     public static void main ( String[] args ) {
         //스태틱 메서드 참조
-        UnaryOperator<String> hiStaticLambda = greet1 -> Greeting.hi ( greet1 ); //static 메서드는 인스턴스 생성이 필요가 없기 때문에 바로 참조해서 주소의 값을 가져올 수 있다.
-        UnaryOperator<String> hiStaticReference = Greeting::hi; //static 메서드는 인스턴스 생성이 필요가 없기 때문에 바로 참조해서 주소의 값을 가져올 수 있다.
+        UnaryOperator<String> hiStaticLambda = greet1 -> Greeting.hi ( greet1 );
+        //static 메서드는 인스턴스 생성이 필요가 없기 때문에 바로 참조해서 주소의 값을 가져올 수 있다.
+        UnaryOperator<String> hiStaticReference = Greeting::hi;
+        //static 메서드는 인스턴스 생성이 필요가 없기 때문에 바로 참조해서 주소의 값을 가져올 수 있다.
 
         //특정 객체의 인스턴스 메서드 참조
         Greeting greeting = new Greeting(); //특정 인스턴스를 생성하고
@@ -40,7 +42,7 @@ public class References {
 
 
         //임의 객체의 인스턴스 메서드 참조
-        String[] names = {"k","w","t"};
+        String[] names = {"k", "w", "t"};
         Arrays.sort ( names, ( s, str ) -> s.compareToIgnoreCase ( str ) );
         Arrays.sort ( names, String::compareToIgnoreCase );
         System.out.println(Arrays.toString(names));
@@ -56,7 +58,7 @@ public class References {
         Supplier<Greeting> greetingNewReference = Greeting::new;
         /**
          * 기본적으로 클래스에는 빈 생성자가 자동 생성되므로 받는 파라미터 없이 인스턴스만 돌려줘서 Supplier 타입이다
-         * 그렇다면 생성자가 둘 이상이라면 어떠한 생성자를 참조하게 될까?
+         * 그렇다면 생성자가 둘 이상이라면 어떠한 생성자를 메서드 참조하게 될까?
          * 직접 Greeting::new 를 해보면 생성 가능한 타입이 최대 8가지이다.
          * 이 중에 Function 은 매개변수를 하나만 가지는 레퍼런스이고 BiFunction은 둘을 가지게 된다.
          * 만약 생성자 파라미터가 복수라면 값이 어떻게 파라미터에 할당되어 만들어지는지 눈으로 확인할 수 없기 때문에

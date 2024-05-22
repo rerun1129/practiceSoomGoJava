@@ -30,6 +30,8 @@ public class JavaFunctionalInterface {
         System.out.println(get10.get());
 
         Predicate<String> TorF = (str) -> str.startsWith("길동");
+        System.out.println ( TorF.test ( "홍길동" ) );
+
         Predicate <Integer> isEven = (i) -> i%2 == 0;
 
         UnaryOperator<Integer> unaryPlus10 = (i) -> i+10;
@@ -53,7 +55,7 @@ public class JavaFunctionalInterface {
         //forEach 는 그 특성 상 제네릭 타입을 받아서 어떠한 작업을 하고 리턴을 하지 않아야 하기 때문에 Consumer 의 동작과 부합
 
         //stream 의 filter 는 컬렉션 객체를 순회하며 그 객체 내부의 요소를 가지고 그 요소가 일정 조건에 맞다면 그 객체를 다음 오퍼레이션으로 보내고 아니라면 보내지 않는 필터링 역할을 한다.
-        nameList.stream ().filter ( name -> name.startsWith ( "J" ) );
+        nameList.stream ().filter ( name -> name.startsWith ( "J" ) ).forEach ( System.out::println);
         //filter 는 그 특성 상 제네릭 타입을 받아서 true, false 를 리턴해줘야 하기 때문에 Predicate 의 동작과 부합
 
         //stream 의 collect 는 컬렉션 객체를 가지고 collect 즉, 집합 연산을 하거나 결과를 모아 새로운 컬렉션 객체로 만들어주는 역할을 한다.
