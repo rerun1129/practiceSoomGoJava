@@ -7,7 +7,7 @@ public class ExceptionRuntime {
      * 이렇게 언체크 예외를 던지도록 해서 해당 기능을 수정하는 개발자에게
      * 주의를 요하게 할 수도 있다.
      */
-    void unchecked() throws RuntimeException {
+    void unchecked() throws NullPointerException {
         System.out.println ( "아무것도 안함" );
     }
 }

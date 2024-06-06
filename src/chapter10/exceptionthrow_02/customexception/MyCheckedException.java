@@ -7,6 +7,7 @@ public class MyCheckedException extends Exception{
      * Exception 을 상속받으면 체크 예외가 된다.
      * RuntimeException 을 상속받으면 언체크 예외가 된다. 이런 규칙은 자바 언어에서 문법으로 정한 것이다.
      * */
+
     public MyCheckedException ( String message ) {
         /**
          * 예외가 제공하는 여러가지 기본 기능이 있는데, 그 중에 이렇게 오류 메시지를 보관하는 기능도 있다.

@@ -16,13 +16,12 @@ public class Throwing1 {
         try {
             throwing2.throwExceptionOther ();
         } catch ( ArithmeticException | IOException e ) {
-
             System.out.println ( "예외를 잘 처리했습니다." );
             System.out.println ( "경고 메세지도 잘 처리했습니다." );
             /**
              * 여기에서 Exception 으로 모든 예외를 잡으면 하위 타입인 IOException 도 잡힌다.
              * 또한, 예외는 위와 같이 여러 예외를 catch 블록에서 여럿을 각각 잡을 수 있다.
-             * 예외를 여럿 잡아도 하나의 결과만이 나온다.
+             * 예외를 여럿 잡아도 하나의 결과만이 나온다. (예외마다 처리방식이 다르다면 catch 블록을 접을 수 없다.)
              * */
 
             /**
