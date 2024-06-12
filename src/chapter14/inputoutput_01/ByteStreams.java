@@ -15,7 +15,7 @@ public class ByteStreams {
         os.write ( 20 );
         os.write ( 30 );
 
-        os.flush (); //자원을 돌려주는 메서드이기 때문에 자원 관리를 위해서는 선언해줘야 함
+        os.flush ();
         os.close (); //자원을 돌려주는 메서드이기 때문에 자원 관리를 위해서는 선언해줘야 함
     }
 
@@ -26,6 +26,7 @@ public class ByteStreams {
             if(read == -1) break; //-1이 리턴되면 EOF(End Of File)
             System.out.println ( read );
         }
+
         is.close ();
     }
 }

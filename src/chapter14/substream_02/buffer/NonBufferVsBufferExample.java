@@ -9,7 +9,7 @@ public class NonBufferVsBufferExample {
     }
 
     public static void copyWithBuffer () {
-        try(FileInputStream fis = new FileInputStream( NonBufferVsBufferExample.class.getResource ( "employees.zip" ).getPath ( ));
+        try(FileInputStream fis = new FileInputStream( "employees.zip");
             FileOutputStream fos = new FileOutputStream("targetFileBuffer.zip");
             BufferedInputStream bis = new BufferedInputStream( fis);
             BufferedOutputStream bos = new BufferedOutputStream( fos)) {
@@ -21,7 +21,7 @@ public class NonBufferVsBufferExample {
     }
 
     public static void copyNonBuffer () {
-        try(FileInputStream fis = new FileInputStream( NonBufferVsBufferExample.class.getResource ( "employees.zip" ).getPath ( ));
+        try(FileInputStream fis = new FileInputStream("employees.zip");
             FileOutputStream fos = new FileOutputStream("targetFileNonBuffer.zip")) {
             double nonBufferTime = copy(fis, fos);
             System.out.println("버퍼를 사용하지 않았을 때:\t" + nonBufferTime + "초");

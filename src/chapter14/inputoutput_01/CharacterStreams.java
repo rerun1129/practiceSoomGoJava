@@ -22,7 +22,8 @@ public class CharacterStreams {
      *
      * */
     public static void write() {
-        try(Writer writer1 = new FileWriter ( "test_char1.txt" ); Writer writer2 = new FileWriter ( "test_char2.txt" )){
+        try(Writer writer1 = new FileWriter ( "test_char1.txt" );
+            Writer writer2 = new FileWriter ( "test_char2.txt" )){
             writer1.write ( 'A' );
             writer1.write ( 'B' );
             writer1.write ( 'C' );
@@ -35,7 +36,8 @@ public class CharacterStreams {
     }
 
     public static void read() {
-        try(Reader reader1 = new FileReader ( "test_char1.txt" ); Reader reader2 = new FileReader ( "test_char2.txt" )){
+        try(Reader reader1 = new FileReader ( "test_char1.txt" );
+            Reader reader2 = new FileReader ( "test_char2.txt" )){
             while ( true ) {
                 int read1 = reader1.read ( ); //1byte 씩 읽기
                 int read2 = reader2.read ( ); //1byte 씩 읽기
