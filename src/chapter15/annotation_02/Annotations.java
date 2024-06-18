@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 @Retention ( RetentionPolicy.RUNTIME )
 //어노테이션에 붙는 어노테이션은 메타 어노테이션이라 하며 이를 이용해 커스텀 어노테이션 작성이 가능.
 //즉, 어노테이션의 정보를 담고 있는 어노테이션으로 이해하면 됨
-public @interface CustomAnnotation { //어노테이션 선언 방법
+public @interface Annotations { //어노테이션 선언 방법
     /**
      * 어노테이션
      *
