@@ -6,7 +6,6 @@ import java.util.Set;
 public enum EnumActual {
 
     GOOGLE {
-        @Override
         public ClientRegistration.Builder getBuilder(String registrationId) {
             ClientRegistration.Builder builder = getBuilder(registrationId);
             builder.authorizationUri("https://accounts.google.com/o/oauth2/auth");
@@ -19,7 +18,6 @@ public enum EnumActual {
     },
 
     GITHUB {
-        @Override
         public ClientRegistration.Builder getBuilder(String registrationId) {
             ClientRegistration.Builder builder = getBuilder(registrationId);
             builder.scope("read:user");
@@ -32,7 +30,6 @@ public enum EnumActual {
     },
 
     FACEBOOK {
-        @Override
         public ClientRegistration.Builder getBuilder(String registrationId) {
             ClientRegistration.Builder builder = getBuilder(registrationId);
             builder.scope("public_profile", "email");
@@ -45,8 +42,6 @@ public enum EnumActual {
     };
 
     private static final String DEFAULT_REDIRECT_URL = "{baseUrl}/login/oauth2/code/{registrationId}";
-
-    public abstract ClientRegistration.Builder getBuilder(String registrationId);
 
 }
 

@@ -36,15 +36,15 @@ public class BeforePayGroup {
 
 
     //3.a. 문제의 예시 메서드들
-    public static String pushPayGroup(String payCode) { //push 메세지를 출력해주는 메서드
-        if("CASH".equals ( payCode )) {
+    public static String pushPayGroup(String payMethod) { //push 메세지를 출력해주는 메서드
+        if("CASH".equals ( payMethod )) {
             return "현금 결제 시 푸시 알림";
-        } else if( "CARD".equals(payCode)) {
+        } else if( "CARD".equals(payMethod)) {
             return "카드 결제 시 푸시 알림";
-        } else if("ETC".equals(payCode)) {
+        } else if("ETC".equals(payMethod)) {
             return "기타 수단 결제 시 푸시 알림";
         } else {
-            throw new IllegalStateException ( "존재하지 않는 payCode 입니다." );
+            throw new IllegalStateException ( "존재하지 않는 payMethod 입니다." );
         }
     }
 
