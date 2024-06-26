@@ -2,8 +2,8 @@ package chapter15.enum_01.grouping;
 
 public class BeforePayGroup {
     /**
-     * 예를 들어 결제라는 데이터는 결제 종류와 결제 수단이라는 2가지 형태로 표현됨
-     * 신용카드 결제는 신용카드 결제라는 결제 수단 + 카드라는 결제 종류로 정의됨
+     * 예를 들어 결제라는 기능은 결제 종류와 결제 수단이라는 2가지 형태로 표현됨
+     * 신용카드 결제는 카드 결제라는 결제 수단 + 카드라는 결제 종류로 정의됨
      * */
 
     public static String getPayGroup(String payCode) {

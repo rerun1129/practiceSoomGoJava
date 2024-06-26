@@ -1,8 +1,10 @@
 package chapter15.annotation_02;
 
+import jdk.jfr.Percentage;
+
 import java.lang.annotation.*;
 
-@Target ( ElementType.METHOD )
+@Target ( { ElementType.METHOD, ElementType.TYPE } )
 @Retention ( RetentionPolicy.RUNTIME )
 //어노테이션에 붙는 어노테이션은 메타 어노테이션이라 하며 이를 이용해 커스텀 어노테이션 작성이 가능.
 //즉, 어노테이션의 정보를 담고 있는 어노테이션으로 이해하면 됨
@@ -47,10 +49,10 @@ public @interface Annotations { //어노테이션 선언 방법
      *
      * 3. @Documented
      * - 해당 어노테이션을 Javadoc에 포함시킴
-     * - Javadoc은 자바 공식문서 형식으로 표시되는 것인데 일반적으로는 어노테이션은 중요한 정보가 아니므로 문서 구성에서 빠짐
+     * - Javadoc은 자바 공식문서 형식으로 표시되는 것인데 일반적으로 어노테이션은 중요한 정보가 아니므로 문서 구성에서 빠짐
      * 4. @Inherited
      * - 어노테이션의 상속을 가능하게 함
-     * - 일반적으로 어노테이션은 붙은 클래스에서만 동작하는데 이 메타어노테이션이 붙으면 어노테이션까지 포함해서 상속함
+     * - 일반적으로 어노테이션은 붙은 클래스에서만 동작하는데 이 메타 어노테이션이 붙으면 어노테이션까지 포함해서 상속함
      * 5. @Repeatable
      * - Java8 부터 지원하며, 연속적으로 어노테이션을 선언할 수 있게 해줌
      * - 동일한 어노테이션은 중복 선언이 불가능한 것이 원칙인데 이 메타 어노테이션이 붙은 어노테이션은 중복 선언이 가능해짐

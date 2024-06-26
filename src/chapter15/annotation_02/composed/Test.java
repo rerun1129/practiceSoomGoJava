@@ -25,5 +25,4 @@ public @interface Test {
      *  사용이 가능하기 때문에 코드의 가독성 및 재사용성을 유의미하게 높일 수 있다.
      * */
     String value() default "";
-
 }

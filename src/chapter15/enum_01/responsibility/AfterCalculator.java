@@ -18,7 +18,7 @@ public enum AfterCalculator {
         this.expression = expression;
     }
 
-    public long calculate(long value) {
+    public long calculate(long value) { //행위
         return expression.apply ( value );
     }
 }

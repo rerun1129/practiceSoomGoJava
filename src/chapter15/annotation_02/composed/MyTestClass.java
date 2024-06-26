@@ -29,7 +29,7 @@ public class MyTestClass {
                 ComposedTest composedTest = method.getAnnotation(ComposedTest.class);
                 //ComposedTest 어노테이션에 딸린 Test 어노테이션의 value 값 가져오기
                 Test testAnnotation = composedTest.annotationType().getAnnotation(Test.class);
-                System.out.println("Test annotation value: " + testAnnotation.value());
+                System.out.println("Test annotation value: " + testAnnotation.value ());
                 //ComposedTest 어노테이션에 딸린 Before 어노테이션의 value 값 가져오기
                 Before beforeAnnotation = composedTest.annotationType().getAnnotation(Before.class);
                 System.out.println("Before annotation value: " + beforeAnnotation.value());
