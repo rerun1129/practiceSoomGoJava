@@ -1,4 +1,4 @@
-package chapter13.collection_01;
+package chapter13.collection_01.base;
 
 import java.util.Collection;
 import java.util.List;
