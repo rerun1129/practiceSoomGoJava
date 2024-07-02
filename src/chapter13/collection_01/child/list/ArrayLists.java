@@ -42,11 +42,12 @@ public class ArrayLists {
         listSizeTen.forEach ( System.out::println );
         System.out.println ( "비어 있어야 함" );
         System.out.println ( "=========================================================" );
-        //contains / containsAll
+        //contains / containsAll / of
         System.out.println ( listSizeZero.contains ( "안녕1" ) ? "참" : "거짓" );
         System.out.println ( listSizeZero.contains ( "안녕?" ) ? "참" : "거짓" );
         System.out.println ( "=========================================================" );
         List <String> compareList = List.of ( "안녕1", "안녕2-1", "안녕2-2", "안녕3" );
+        //위에서 처럼 리스트를 선언하고 add로 객체를 넣는 것이 아닌 of 정적 팩터리 메서드로 값을 바로 넣어서 인스턴스를 생성함
         List <String> compareList2 = List.of ( "안녕1", "안녕2-1", "안녕2-2", "안녕3" );
         List <String> compareList3 = List.of ( "안녕1", "안녕2-1", "안녕2-2", "안녕2-3" );
         System.out.println ( compareList2.containsAll ( compareList ) ? "참" : "거짓" ); //동일한 리스트들을 비교
