@@ -5,8 +5,8 @@ import java.lang.reflect.Field;
 public class FieldInjector {
 
     public static void injectValues(Object obj) {
-        Class<?> clazz = obj.getClass();
         //this나 인스턴스로 넘어오는 객체의 클래스 정보를 리플렉션을 통해서 뽑아냄
+        Class<?> clazz = obj.getClass();
         //class가 예약어이기 때문에 일반적으로 Class 타입의 변수를 추출할 때는 clazz로 관습적으로 사용함
         Field[] fields = clazz.getDeclaredFields();
         Field[] fieldsUnAccessible = clazz.getFields();

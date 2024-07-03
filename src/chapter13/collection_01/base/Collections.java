@@ -18,7 +18,7 @@ public class Collections {
      *   - List(자식 인터페이스) -> '순서(중요)' 가 있는 데이터의 집합. 데이터의 '중복(중요)' 을 허용한다.
      *      - 구현 클래스 -> ArrayList, LinkedList, Stack, Vector(이전 버전 호환성을 위해 놔둠) 등...
      *   - Set(자식 인터페이스) -> '순서(중요)' 가 없는 데이터의 집합. 데이터의 '중복(중요)' 을 허용하지 않는다.
-     *      - 구현 클래스 -> HashSet, TreeSet 등...
+     *      - 구현 클래스 -> HashSet, TreeSet, SortedSet 등...
      * - Map -> 키와 값 쌍으로 이루어진 데이터의 집합. 순서는 유지되지 않으며, 키는 중복을 허용하지 않고 값은 중복을 허용한다.
      *      - 구현 클래스 -> HashMap, TreeMap, Hashtable(이전 버전 호환성), Properties(이전 버전 호환성)
      *
@@ -41,7 +41,7 @@ public class Collections {
          * boolean removeAll(Collection c) -> 해당 컬렉션에서 지정된 컬렉션에 담긴 객체들을 모두 삭제함
          *
          * boolean retainAll(Collection c) -> 해당 컬렉션에 대해서 지정된 컬렉션에 포함된 객체만 남기고 다른 객체들은 컬렉션에서 삭제한다.(교집합만 남김)
-         *                      이 작업으로 인해 컬렉션에 변화가 있으면 true를 그렇지 않으면 false를 반환한다.
+         *                                    이 작업으로 인해 컬렉션에 변화가 있으면 true를 그렇지 않으면 false를 반환한다.
          * int size() -> 해당 컬렉션의 크기를 반환
          * Object[] toArray() -> 해당 컬렉션을 Object 배열로 반환
          *

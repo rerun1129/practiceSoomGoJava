@@ -1,7 +1,6 @@
 package chapter13.collection_01.child.list;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ArrayLists {
     /**
@@ -109,7 +108,8 @@ public class ArrayLists {
         System.out.println ( "=========================================================" );
         //subList
         List <Integer> subList = sortList.subList ( 1, 3 ); //시작 인덱스는 자기 자신의 결과를 포함, 엔드 인덱스는 자기 자신의 결과를 제외
-        subList.forEach ( System.out::println );
+        subList.forEach ( System.out::print );
+        System.out.println ( );
         System.out.println ( "=========================================================" );
 
 
@@ -118,20 +118,20 @@ public class ArrayLists {
          * */
         //Ex)
         //원본
-//        List <Map<String, String>> maps = new ArrayList <> ( List.of (
-//                new HashMap <> ( Map.of ( "1", "안녕하세요1" )),
-//                new HashMap <> ( Map.of ( "2", "안녕하세요2" )),
-//                new HashMap <> ( Map.of ( "3", "안녕하세요3" )) ));
-//        //사본 작성
-//        List <Map<String, String>> mapsNew = new ArrayList <> ( maps ); //여기서 새로운 리스트 객체를 만들었지만
-//        List <Map <String, String>> mapsPut = mapsNew.stream ( ).peek ( m -> {
-//            m.put ( "1", "안녕하세요11111" );
-//            m.put ( "2", "안녕하세요22222" );
-//            m.put ( "3", "안녕하세요33333" );
-//        } ).toList ( );
-//        mapsPut.forEach ( System.out::println ); //새로운 리스트 객체에서 put으로 내부 객체에 변동을 주면 동일한 메모리 주소에 대한 작업이므로 동시에 영향을 받음
-//        mapsNew.forEach ( System.out::println );
-//        maps.forEach ( System.out::println );
+        List <Map<String, String>> maps = new ArrayList <> ( List.of (
+                new HashMap <> ( Map.of ( "1", "안녕하세요1" )),
+                new HashMap <> ( Map.of ( "2", "안녕하세요2" )),
+                new HashMap <> ( Map.of ( "3", "안녕하세요3" )) ));
+        //사본 작성
+        List <Map<String, String>> mapsNew = new ArrayList <> ( maps ); //여기서 새로운 리스트 객체를 만들었지만
+        List <Map <String, String>> mapsPut = mapsNew.stream ( ).peek ( m -> {
+            m.put ( "1", "안녕하세요11111" );
+            m.put ( "2", "안녕하세요22222" );
+            m.put ( "3", "안녕하세요33333" );
+        } ).toList ( );
+        mapsPut.forEach ( System.out::println ); //새로운 리스트 객체에서 put으로 내부 객체에 변동을 주면 동일한 메모리 주소에 대한 작업이므로 동시에 영향을 받음
+        mapsNew.forEach ( System.out::println );
+        maps.forEach ( System.out::println );
 
 
     }

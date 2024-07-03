@@ -45,5 +45,6 @@ public class Stacks {
         stack.pop ( );
         stack.pop ( );
         stack.pop ( ); //이 지점에서 예외 발생
+
     }
 }

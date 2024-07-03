@@ -1,7 +1,7 @@
 package chapter15.annotation_02.custom;
 
 public class InjectedClass {
-    @InjectValue(stringValue = "Injected Value")
+    @InjectValue( stringValue = "Injected Value" )
     private String field1;
 
     @InjectValue(intValue = 20)
