@@ -1,4 +1,4 @@
-package chapter13.generics_02.box.normal;
+package chapter13.generics_02.box.normal_01;
 
 import java.util.ArrayList;
 

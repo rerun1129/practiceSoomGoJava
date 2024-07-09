@@ -1,8 +1,7 @@
-package chapter13.generics_02.box.wildcard;
+package chapter13.generics_02.box.wildcard_03;
 
-import chapter13.generics_02.box.extendsuse.Apple;
-import chapter13.generics_02.box.extendsuse.Fruit;
-import chapter13.generics_02.box.extendsuse.FruitBox;
+import chapter13.generics_02.box.extendsuse_02.Fruit;
+import chapter13.generics_02.box.extendsuse_02.FruitBox;
 
 public class Juicer {
     /**

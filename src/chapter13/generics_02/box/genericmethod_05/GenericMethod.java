@@ -1,9 +1,9 @@
-package chapter13.generics_02.box.genericmethod;
+package chapter13.generics_02.box.genericmethod_05;
 
-import chapter13.generics_02.box.extendsuse.Apple;
-import chapter13.generics_02.box.extendsuse.Fruit;
-import chapter13.generics_02.box.extendsuse.FruitBox;
-import chapter13.generics_02.box.wildcard.Juice;
+import chapter13.generics_02.box.extendsuse_02.Apple;
+import chapter13.generics_02.box.extendsuse_02.Fruit;
+import chapter13.generics_02.box.extendsuse_02.FruitBox;
+import chapter13.generics_02.box.wildcard_03.Juice;
 
 public class GenericMethod<T> {
 

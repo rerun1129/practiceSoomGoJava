@@ -1,4 +1,4 @@
-package chapter13.generics_02.box.extendsuse;
+package chapter13.generics_02.box.extendsuse_02;
 
 import chapter13.generics_02.box.Box;
 

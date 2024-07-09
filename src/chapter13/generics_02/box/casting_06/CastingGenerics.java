@@ -1,10 +1,10 @@
-package chapter13.generics_02.box.casting;
+package chapter13.generics_02.box.casting_06;
 
 import chapter13.generics_02.box.Box;
-import chapter13.generics_02.box.extendsuse.Apple;
-import chapter13.generics_02.box.extendsuse.Fruit;
-import chapter13.generics_02.box.extendsuse.FruitBox;
-import chapter13.generics_02.box.extendsuse.Grape;
+import chapter13.generics_02.box.extendsuse_02.Apple;
+import chapter13.generics_02.box.extendsuse_02.Fruit;
+import chapter13.generics_02.box.extendsuse_02.FruitBox;
+import chapter13.generics_02.box.extendsuse_02.Grape;
 
 public class CastingGenerics {
 
@@ -38,8 +38,12 @@ public class CastingGenerics {
         FruitBox<? extends Fruit> wildBox3 = null;
         FruitBox<Apple> appleBox = (FruitBox<Apple>) wildBox3; //wildBox3에 Apple 객체 말고 Grape가 들어있을 수도 있으니 경고
 
-        //복잡한 예시
-
+        //종합 예시 [3번 -> 4번 -> 3번] (Box<Object> -> Box<?> -> Box<Fruit>)
+        Box<Object> box2 = new Box <Object> ();
+        //Box<Object> -> Box<?>로 변환
+        Box<?> boxWild = box2;
+        //Box<?> -> Box<Fruit>로 변환
+        Box<Fruit> boxFruit = (Box<Fruit>)boxWild;
 
     }
 }

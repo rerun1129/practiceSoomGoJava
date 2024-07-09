@@ -1,4 +1,4 @@
-package chapter13.generics_02.box.wildsuper;
+package chapter13.generics_02.box.wildsuper_04;
 
 import java.util.ArrayList;
 import java.util.Collections;
