@@ -18,20 +18,19 @@ public class HashMaps {
      * */
 
     public static void main ( String[] args ) {
-        HashMap <Object, Object> hashMap = new HashMap <> ( );
-        HashMap <Object, Object> hashMapLoadFactor = new HashMap <> ( 16, 0.75f); //load factor는 따로 설정하지 않으면 기본값이 0.75임
+        Map <Object, Object> hashMap = new HashMap <> ( );
+        Map <Object, Object> hashMapLoadFactor = new HashMap <> ( 16, 0.75f); //load factor는 따로 설정하지 않으면 기본값이 0.75임
         //load Factor 는 Capacity 의 임계치라고 보면 된다. 만약 초기 가용량이 16이라면 16 * 0.75 = 12 만큼 Map의 공간을 사용하면
         //13번째 데이터 삽입 시 미리 동적으로 16의 2배인 32로 가용량을 늘려서 데이터를 담게 된다.
         //그리고 다시 32 * 0.75 = 24 만큼 데이터를 담게 되면 다시 25번째에 32 * 2 인 64만큼 가용량을 늘리는 방식으로 계속 이어진다.
         //간단하게 어느 시점에 Map 의 가용 메모리 공간을 리사이징 할지를 결정하는 것이고 적절한 시점에 리사이징을 하면
         //키-값 쌍을 Map 에 넣을 때 키의 충돌 없이 효율적으로 데이터를 배치할 수 있게 된다.
 
-        //of
+        //of -> 자바 11
         Map <String, Integer> stringIntegerMap = new HashMap <> ( Map.of ( "1", 20, "2", 30, "3", 40 ) );
         //Map의 of는 다른 Collection 상속 객체와는 다르게 키1, 값1, 키2, 값2 ... 순서로 파라미터를 넘겨야 Map 인스턴스가 만들어진다.
         //앞에서 설명하지 않았지만 of를 사용해서 컬렉션 인스턴스를 만들면 해당 컬렉션은 불변 객체가 되어 add, remove 등의 추가 삭제가 불가능해진다.
         //그것을 막기 위해서 다시 HashMap 생성자로 랩핑해서 가변 객체를 만들어준 것이다.
-
         //containsKey / containsValue
         System.out.println ( stringIntegerMap.containsKey ( "1" ) ); //키의 존재여부 확인
         System.out.println ( stringIntegerMap.containsValue ( 30 ) ); //값의 존재여부 확인
@@ -69,7 +68,7 @@ public class HashMaps {
          * */
         stringIntegerMap.put ( "4", 10 );
         stringIntegerMap.replace ( "4", 9999 );
-        stringIntegerMap.replace ( "4", 9999, 10 ); //성공
+        stringIntegerMap.replace ("4", 9999, 10); //성공
         stringIntegerMap.replace ( "4", 100, 10000 ); //실패
         //키 4의 값은 최종적으로 10이 된다.
         System.out.println ( stringIntegerMap.get ( "4" ) );
@@ -81,7 +80,7 @@ public class HashMaps {
      * 해싱과 해시함수
      *
      * 해싱이란 해시 함수를 이용해서 데이터를 해시 테이블에 저장하고 검색하는 기법을 말한다.
-     * 이러한 해싱을 통해서 유일한 키가 될 해시 코드를 해시 함수를 통해서 구하고 그 해시 코드를 키에 대응하여
+     * 이러한 해시 함수 -> 해싱 -> 해시 코드를 구하고 그 해시 코드를 키에 대응하여
      * 하나의 키에 하나의 데이터가 대응되도록 하여 키를 알면 그 데이터에 바로 접근(조회)할 수 있도록 하는 것이 해싱이다.
      * 이상적인 경우에는 키-값 쌍이 1대1 대응되도록 하여 데이터 검색 및 추가/삭제에 시간 복잡도가 O(1)인 이론상 가장 빠른 상수 시간 접근이 가능해진다.
      *
@@ -98,7 +97,7 @@ public class HashMaps {
      * data[7] [테이블 주소] -> [75xxxx-1xxxxxx] -> [79xxxx-1xxxxxx]
      * data[8] [테이블 주소] -> [    ]
      * data[9] [테이블 주소] -> [    ]
-     * ↑ 배열    ↑맵핑 테이블
+     * ↑ 배열    ↑맵핑(해시) 테이블
      *
      * 만약 위에 주민등록번호 데이터를 넣어야 한다면 주민등록번호 첫번째 숫자를 배열의 인덱스와 대응시켜 분류하는 방법을 취할 수 있다
      * 물론 해시 함수가 값을 분류하는 방법은 위처럼 단순하진 않고 최대한 해시 테이블에 값들이 균등하게 들어가도록 구현된다

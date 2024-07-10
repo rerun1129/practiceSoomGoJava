@@ -36,10 +36,10 @@ class Person {
 //
 //        return false;
 //    }
-//
+
 //    public int hashCode() {
 //        return (name+age).hashCode();
-//        //앞선 챕터에서 언급했다 시피 equals의 동일성 판단 기준은 hashCode 이기 때문에
+//        //앞선 챕터에서 언급했다시피 equals의 동일성 판단 기준은 hashCode 이기 때문에
 //        //name과 age가 동일한 객체에 대한 hashCode가 같아야 하므로 위와 같이 hashCode를 재정의함
 //    }
 

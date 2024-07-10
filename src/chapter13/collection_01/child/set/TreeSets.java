@@ -29,7 +29,8 @@ public class TreeSets {
         treeSet.add (1); treeSet.add (1); treeSet.add (2);
         treeSet.add (2); treeSet.add (3); treeSet.add (4);
         treeSet.add (4); treeSet.add (5); treeSet.add (6);
-        treeSet.add ( 9 );
+        treeSet.add (9);
+        //1 2 3 4 5 6 9
         //ceiling / floor -> 지정된 객체를 반환, 없으면 지정 객체와 제일 가까운 값 중 바로 인접한 큰 / 작은 값을 가진 객체를 반환(조건에 맞는 객체가 없으면 null)
         System.out.println ( treeSet.ceiling ( 7 ) ); //대상 인접 값 -> 9
         System.out.println ( treeSet.floor ( 7 ) ); //대상 인접 값 -> 6
@@ -50,7 +51,7 @@ public class TreeSets {
         //headSet / tailSet -> 지정된 객체보다 작은 / 크거나 같은 값의 객체들을 반환
         treeSet.headSet ( 4 ).forEach ( System.out::print ); //1,2,3
         System.out.println ( );
-        treeSet.tailSet ( 4 ).forEach ( System.out::print );//4,5,6,9
+        treeSet.tailSet ( 4 ).forEach ( System.out::print ); //4,5,6,9
         System.out.println ( );
         System.out.println ( "========================================================" );
         //higher / lower -> 지정된 객체보다 큰 / 작은 값을 가진 객체 중 제일 가까운 값의 객체를 반환(조건에 맞는 객체가 없으면 null)
