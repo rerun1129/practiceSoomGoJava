@@ -14,7 +14,7 @@ public class ProducerStack<E extends Integer> {
 
     // 배열 elements 는 push(E)로 넘어온 E 인스턴스만 담는다.
     // 따라서 타입 안전성을 보장하지만,
-    // 이 배열의 런타임 타입은 E[]가 아닌 Object[]다!
+    // 이 배열의 런타임 타입은 E[]가 아닌 Object[]다
     public ProducerStack ( ) {
         elements = new Integer[DEFAULT_INITIAL_CAPACITY];
     }
@@ -41,7 +41,6 @@ public class ProducerStack<E extends Integer> {
         if (elements.length == size) elements = Arrays.copyOf ( elements, 2 * size + 1 );
     }
 
-    // 코드 29-5 제네릭 Stack을 사용하는 맛보기 프로그램 (174쪽)
     public static void main(String[] args) {
         ProducerStack <Integer> stack = new ProducerStack <> ();
         for (Integer arg : List.of(1, 2, 3)) stack.push(arg);

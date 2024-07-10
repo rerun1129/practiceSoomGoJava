@@ -32,7 +32,7 @@ public class FruitBox /*<T extends Fruit & Eatable>*/ <T extends Fruit> extends 
      *
      * 자바는 버전 간 호환성을 매우 중요하게 생각하기 때문에 .class 파일을 만들기 위한 바이트코드에서는
      * T extends Fruit 는 Fruit 로 변환되며 <T> 는 Object 로 변환되어 처리된다.
-     * 실제로 사용되는 부분은 자식 클래스 타입일 것이기 때문에 사용하는 곳에서는 문제없이 Apple 이나 Grape 로 바이트 코드에
-     * 표시된다.
+     * 실제로 사용되는 부분은 자식 클래스 타입일 것이기 때문에 사용하는 곳에서는 문제없이
+     * Apple 이나 Grape 로 바이트 코드에 표시된다.
      * */
 }
