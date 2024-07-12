@@ -1,4 +1,4 @@
-package chapter16.streamapi_01;
+package chapter16.streambase_01;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -59,5 +59,39 @@ public class Stream_2 {
         sortedStream.forEach ( System.out::print );//스트림 내부 값의 출력 (최종 연산, 반환 값이 void 이므로 이후에 중간 연산이나 최종 연산을 더 진행하는 것은 불가능)
         //위의 결과를 보면 중복 제거 -> 값 개수 제한 -> 정렬 순서로 중간 연산을 했기 때문에 알파벳 순으로 6개인 abcdeg 가 아닌 abcdep 가 나왔다.
         //이 결과를 바탕으로 스트림의 중간 연산의 순서도 중요하다는 것을 인지해야 한다.
+
+        System.out.println ( );
+//        sortedStream.forEach ( System.out::print ); //최종 연산이 끝난 스트림을 재사용하려고 하면 이렇게 예외가 발생한다.
+
+        //정말 원본은 스트림 처리의 영향이 없을까?
+        List <Integer> integerList = List.of ( 10, 20, 30, 40 );
+        integerList.stream ()
+                   .map( i -> i * 2 ) //여기서 각 값에 2를 곱해서 다음 연산을 진행시킴
+                   .forEach ( System.out ::print );
+        System.out.println ( );
+        integerList.forEach ( System.out ::print ); //원본 값 확인
+        System.out.println ( );
+        //정말 무슨일이 있어도 스트림 내부 연산은 원본 컬렉션을 변경시키지 않을까?
+        List <Person> personList = List.of ( new Person ( "Mike", 20 ), new Person ( "James", 25 ) );
+        personList.stream ().peek ( p -> p.setAge ( 30 )  ).forEach ( System.out ::println );
+        System.out.println ( "↑ 스트림 객체" );
+        personList.forEach ( System.out ::println );
+        System.out.println ( "↑ 원본 객체" );
+        //결과를 보면 변경이 되었음을 알 수 있다.
+
+        System.out.println ( );
+        /**
+         * 첫번째 예시와 두번째 예시의 차이가 생기는 이유
+         *
+         * 첫번째 예시는 기본형의 객체 값을 수정했기 때문에 원본의 값은 변경이 없는 것이고
+         * 두번째 예시는 참조형의 객체 값을 수정했기 때문에 메모리 주소를 참조하는 참조형 객체가 모두 변경이 된 것이다.
+         * 이 경우에 스트림 처리를 하면서 원본 객체를 건드리고 싶지 않다면 아래와 같이 처리하면 된다.
+         * */
+        List <Person> personListImmutable = List.of ( new Person ( "Mike", 20 ), new Person ( "James", 25 ) );
+        personListImmutable.stream ().map ( p -> new Person ( p.getName (), 30 )  ).forEach ( System.out ::println );
+        System.out.println ( "↑ 스트림 객체" );
+        personListImmutable.forEach ( System.out ::println );
+        System.out.println ( "↑ 원본 객체" );
+
     }
 }
