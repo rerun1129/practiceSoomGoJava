@@ -1,4 +1,4 @@
-package chapter16.streamapi_01;
+package chapter16.streambase_01;
 
 import java.util.Arrays;
 import java.util.List;
