@@ -61,33 +61,29 @@ public class MiddleCalculate {
     }
 
     private static void streamCut ( List <String> baseList ) {
-        System.out.println ( "스트림 자르기" );
+        System.out.println ( "스트림 자르기\n" );
         //skip
         baseList.stream ( ).skip ( 5 ).forEach ( System.out::print );
         //9개의 요소 중에 5개를 건너 뛰었으니 뒤의 4개만 출력된다.
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
         //limit
         baseList.stream ( ).limit ( 5 ).forEach ( System.out::print );
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
         //5개의 요소로 제한했으므로 따로 skip을 앞에서 하지 않았다면 맨 앞의 5개 요소만 출력된다.
     }
 
     private static void streamFilter ( List <String> baseList ) {
-        System.out.println ( "스트림 필터링" );
+        System.out.println ( "스트림 필터링\n" );
         //filter
         baseList.stream ().filter ( s -> s.startsWith ( "중복" ) ).forEach ( System.out::print );
         //문자열 앞이 중복으로 시작되는 것들만 가져오기
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
         //distinct
         baseList.stream ().distinct ().forEach ( System.out::print );
         //문자열들 중에 중복 제거하기
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
 
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -98,50 +94,41 @@ public class MiddleCalculate {
         //dropWhile
         numbers.stream().dropWhile(n -> n < 5).forEach ( System.out::print );
         //n < 5 조건을 만족하는 숫자들(1,2,3,4)을 제거하고 첫 번째로 조건을 만족하지 않는 숫자인 5를 만난 시점부터 모든 숫자가 포함
-
         System.out.println ( );
         numbersOther.stream().dropWhile(n -> n < 5).forEach ( System.out::print );
         //첫 번째로 조건을 만족하지 않는 숫자부터 모든 숫자가 포함되므로 이후에 조건에 맞지 않는 숫자가 나와도 그것들은 포함됨
-
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
 
         //takeWhile
         numbers.stream().takeWhile (n -> n < 5).forEach ( System.out::print );
         //n < 5 조건을 만족하는 숫자들을 포함하고 첫 번째로 조건을 만족하지 않는 숫자인 5를 만나는 즉시 스트림 처리를 중지하고 그 이후의 숫자들은 포함하지 않음
-
         System.out.println ( );
         numbersOther.stream().takeWhile(n -> n < 5).forEach ( System.out::print );
         //첫 번째로 조건을 만족하지 않는 숫자부터 모든 숫자가 제외되므로 이후에 조건에 맞는 숫자가 나와도 그것들은 제외됨
-
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
     }
 
     private static void streamSort ( List <String> baseList ) {
-        System.out.println ( "스트림 정렬" );
+        System.out.println ( "스트림 정렬\n" );
         //sorted
         baseList.stream ( ).sorted ( ).forEach ( System.out::print );
         //기본 정렬이므로 ㄱ으로 시작하는 값이 먼저 오고 나머지는 뒤의 숫자 기준으로 정렬됨
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
         List<String> stringList = List.of ("1 ", "2 ", "10 ", "20 ");
         List<Integer> integerList = List.of (1, 2, 10, 20);
         stringList.stream ( ).sorted ( ).forEach ( System.out::print );
-        System.out.print ( " -> 문자열 정렬이므로 자리수가 차이나도 맨 앞 문자의 ASCII 코드 기준으로 정렬함" );
-        System.out.println ( );
+        System.out.print ( " -> 문자열 정렬이므로 자리수가 차이나도 맨 앞 문자의 ASCII 코드 기준으로 정렬함\n" );
         integerList.stream ( ).sorted ( ).forEach ( i -> System.out.print ( i + " " ) );
         System.out.print ( " -> 정수의 정렬이므로 숫자의 크기 기준으로 정렬함" );
         //(주의) 기본적으로 정렬 기준인 Comparator 나 Comparable 은 크기 비교에서 정렬 결과가 음수, 0, 양수를 기준으로 서로를 비교함
         //따라서 정수형의 정렬과 문자열의 정렬은 겉으로 보이는 값이 같아도 결과가 달라질 수 있음
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
     }
 
     private static void streamOpen ( List <String> baseList ) {
-        System.out.println ( "스트림 열람" );
+        System.out.println ( "스트림 열람\n" );
         //peek
         //단순 중간 출력 후 중복 제거 후 최종 출력
         baseList.stream ()
@@ -151,8 +138,7 @@ public class MiddleCalculate {
                 .forEach ( s -> System.out.print ( s + "(중복X)"  ));
         //보통 peek에서는 중간 출력확인을 하지 않는데 위의 예시와 같이 중간 연산은 바로 실행되는 것이 아니고 최종 연산이 호출된 시점에 한꺼번에 순차연산되는 방식이기 때문에
         //원하는 결과를 얻을 수가 없다
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
         //List 내부에 담긴 Map의 값을 바꿔서 처리하는 경우
         //Map의 키=제품명, 값=제품가격 일 때, 제품가격에 부가가치세 10%를 추가하는 경우
@@ -164,18 +150,16 @@ public class MiddleCalculate {
         } ).forEach ( System.out::print );
         //여기서 peek 을 사용해서 객체 내부의 값을 변경할 때 문제가 생기는데 내부의 원본 객체에 변경을 가하므로
         //같은 주소를 보고 있는 원본도 동일하게 영향을 받아 변경되어 스트림의 취지인 원본 객체가 변경되지 않는다를 위반한다.
-        System.out.print ( " -> 스트림의 결과" );
-        System.out.println ( );
+        System.out.print ( " -> 스트림의 결과\n" );
         fruitMapList.forEach ( System.out::print );
         System.out.print ( " -> 원본 출력" );
         //이 경우에 원본 객체가 손상됨을 감수하고 처리한다고 하면 문제가 없으나 일반적으로 원본 객체가 변경되는 것은 원하는 바가 아닐 것이므로
         //map()을 써서 객체 return 시에 필요하다면 new HashMap<> () 으로 새로운 객체 주소에 담아서 스트림을 처리하는 것이 확실하다.
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
     }
 
     private static void streamModify ( List <String> baseList ) {
-        System.out.println ( "스트림 변환" );
+        System.out.println ( "스트림 변환\n" );
 
         //map
         //문자열을 Map 으로 변환하되 요소의 인덱스를 키로, 문자열을 값으로 만들기, 추가로 공백도 제거
@@ -186,17 +170,14 @@ public class MiddleCalculate {
         baseList.stream ()
                 .map ( s -> Map.of ( index.getAndIncrement () , s.replace ( " ", "" ) ) )
                 .forEach ( m -> System.out.print ( m + " " ) );
-
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
         //mapToInt(기본형 변환의 예시)
         //문자열 내부의 맨 뒤의 숫자만 정수형으로 변환하여 추출, 공백은 제거
         baseList.stream ()
                 .mapToInt ( s -> Integer.parseInt ( s.replace ( " ", "" ).substring ( s.length () -2, s.length ()-1 ) ) )
                 .forEach ( i -> System.out.print ( i + " " ) );
-        System.out.println ( );
-        System.out.println ( "======================================" );
+        System.out.println ( "\n======================================" );
 
         //flatMap
         //컬렉션의 컬렉션, 배열의 배열을 하나의 컬렉션이나 배열로 압축할 때 사용한다고 생각하면 편하다.
@@ -210,16 +191,14 @@ public class MiddleCalculate {
         List<String> allCafeMenus = new ArrayList <> ();
         cafeMenuCatalog.forEach ( allCafeMenus::addAll );
         allCafeMenus.stream ().distinct ().forEach ( s -> System.out.print ( s + " " ) );
-        System.out.print ( " -> flatMap 없이 처리" );
-        System.out.println ( );
+        System.out.print ( " -> flatMap 없이 처리\n" );
         //스트림을 2번 쪼개서 써야 하고 외부에 불필요한 컬렉션 객체를 따로 선언해서 처리해야 한다.
 
         //flatMap으로 처리했다면?
         //중간 연산이기 때문에 리턴 값은 반드시 Stream<R => 여기서는 String>로 반환해줘야 한다.
         cafeMenuCatalog.stream ().flatMap ( Collection::stream ).distinct ().forEach ( s -> System.out.print ( s + " " ) );
-        System.out.print ( " -> flatMap으로 처리" );
+        System.out.print ( " -> flatMap으로 처리\n" );
         //동일한 처리 결과이지만 여기서는 코드 한줄로 처리할 수 있고 불필요하게 추가 객체를 선언할 필요도 없다.
-        System.out.println ( );
         System.out.println ( "======================================" );
     }
 }
