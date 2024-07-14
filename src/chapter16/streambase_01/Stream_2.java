@@ -50,36 +50,36 @@ public class Stream_2 {
      *            중간연산    중간연산   중간연산  최종연산
      * */
     public static void main ( String[] args ) {
+        System.out.println ( );
         //위의 예시를 실제로 쪼개서 확인해보자
         List <String> list = List.of ( "a", "b", "c", "d", "b", "a", "e", "p", "o", "g" );
         Stream <String> startStream = list.stream ( ); //스트림의 시작
         Stream <String> distinctStream = startStream.distinct ( ); //스트림 내부 값의 중복 제거(중간 연산)
         Stream <String> limitStream = distinctStream.limit ( 6 ); //스트림 결과 개수 제한(중간 연산)
         Stream <String> sortedStream = limitStream.sorted ( ); // 스트림 정렬(중간 연산)
-        sortedStream.forEach ( System.out::print );//스트림 내부 값의 출력 (최종 연산, 반환 값이 void 이므로 이후에 중간 연산이나 최종 연산을 더 진행하는 것은 불가능)
+        sortedStream.forEach ( System.out::print );
+        System.out.print ( " -> 스트림 내부 값의 출력 (최종 연산, 반환 값이 void 이므로 이후에 중간 연산이나 최종 연산을 더 진행하는 것은 불가능)\n\n" );
         //위의 결과를 보면 중복 제거 -> 값 개수 제한 -> 정렬 순서로 중간 연산을 했기 때문에 알파벳 순으로 6개인 abcdeg 가 아닌 abcdep 가 나왔다.
         //이 결과를 바탕으로 스트림의 중간 연산의 순서도 중요하다는 것을 인지해야 한다.
 
-        System.out.println ( );
 //        sortedStream.forEach ( System.out::print ); //최종 연산이 끝난 스트림을 재사용하려고 하면 이렇게 예외가 발생한다.
 
         //정말 원본은 스트림 처리의 영향이 없을까?
         List <Integer> integerList = List.of ( 10, 20, 30, 40 );
         integerList.stream ()
-                   .map( i -> i * 2 ) //여기서 각 값에 2를 곱해서 다음 연산을 진행시킴
+                   .map( i -> i * 2 )
                    .forEach ( System.out ::print );
-        System.out.println ( );
-        integerList.forEach ( System.out ::print ); //원본 값 확인
-        System.out.println ( );
+        System.out.print ( " -> 각 값에 2를 곱해서 다음 연산을 진행시킴\n");
+        integerList.forEach ( System.out ::print );
+        System.out.print ( " -> 원본 값 확인(영향 없음)\n\n");
+
         //정말 무슨일이 있어도 스트림 내부 연산은 원본 컬렉션을 변경시키지 않을까?
         List <Person> personList = List.of ( new Person ( "Mike", 20 ), new Person ( "James", 25 ) );
         personList.stream ().peek ( p -> p.setAge ( 30 )  ).forEach ( System.out ::println );
-        System.out.println ( "↑ 스트림 객체" );
+        System.out.print ( " -> 스트림 객체\n" );
         personList.forEach ( System.out ::println );
-        System.out.println ( "↑ 원본 객체" );
-        //결과를 보면 변경이 되었음을 알 수 있다.
+        System.out.print ( " -> 원본 객체(영향을 미침)\n\n" );
 
-        System.out.println ( );
         /**
          * 첫번째 예시와 두번째 예시의 차이가 생기는 이유
          *
@@ -89,9 +89,9 @@ public class Stream_2 {
          * */
         List <Person> personListImmutable = List.of ( new Person ( "Mike", 20 ), new Person ( "James", 25 ) );
         personListImmutable.stream ().map ( p -> new Person ( p.getName (), 30 )  ).forEach ( System.out ::println );
-        System.out.println ( "↑ 스트림 객체" );
+        System.out.print ( " -> 스트림 객체\n" );
         personListImmutable.forEach ( System.out ::println );
-        System.out.println ( "↑ 원본 객체" );
+        System.out.print ( " -> 원본 객체(객체를 따로 생성 했으므로 영향이 없음)\n" );
 
     }
 }

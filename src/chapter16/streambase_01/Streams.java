@@ -38,12 +38,12 @@ public class Streams {
         //만약 일반적인 for 문으로 컬렉션에 있는 값들 중에 B를 제외하고 모두 출력한다면?
         for(String s : list){
             if(!s.equals ( "B" )){
-                System.out.println ( s );
+                System.out.print ( s );
             }
         }//간단한 기능을 처리하는데 여러 줄의 코드가 필요하고 그만큼 가독성이 떨어진다.
-
+        System.out.println ( );
         //이것을 스트림으로 처리한다면?
-        listToStream.filter ( s -> !"B".equals ( s ) ).forEach ( System.out::println );
+        listToStream.filter ( s -> !"B".equals ( s ) ).forEach ( System.out::print );
         //filter라는 메서드와 forEach라는 메서드가 동작하는 방식만 파악하면 가독성 좋은 1줄짜리 문장이 된다.
     }
 }

@@ -59,19 +59,21 @@ public class Optionals {
         //get
 
         //System.out.println ( nullOptNullable.get ( ) ); //값을 가져온다. 하지만 참조한 Optional 객체가 null을 담고 있기 때문에 NoSuchElementException 이 발생한다.
-        //null 이 아니라면 정상적으로 값을 가져온다.
-        System.out.println ( presentOpt.get ( ) );
+        System.out.print ( presentOpt.get ( ) );
+        System.out.print ( " -> get : null 이 아니라면 정상적으로 값을 가져온다.\n" );
         System.out.println ( "===========================================" );
-
 
         //orElse, orElseGet, orElseThrow
 
         //위의 null 값을 가진 객체를 위의 메서드 들을 이용해서 처리해보자
-        System.out.println ( nullOptNullable.orElse ( "null 이 안나오도록 처리함" ) ); //null 이 나올 경우에는 지정한 문자열이 나오도록 했다.
-        System.out.println ( presentOpt.orElse ( "null 이 안나오도록 처리함" ) ); //그 외의 경우에는 원래 담겨있는 객체의 값이 출력된다.
+        System.out.print ( nullOptNullable.orElse ( "null 이 안나오도록 처리함" ) );
+        System.out.print ( " -> orElse : null이 담긴 객체\n" );
+        System.out.print ( presentOpt.orElse ( "null 이 안나오도록 처리함" ) );
+        System.out.print ( " -> orElse : 값이 담겨있는 객체\n" );
         System.out.println ( "===========================================" );
 
-        System.out.println ( nullOptNullable.orElseGet ( () -> "null 이 안나오도록 처리함" ) );
+        System.out.print ( nullOptNullable.orElseGet ( () -> "null 이 안나오도록 처리함" ) );
+        System.out.print ( " -> orElseGet : null이 담긴 객체\n" );
         //위와 같은 동작을 람다식으로 표현함. Supplier 함수 이기 때문에 파라미터가 넘어오는 것은 없고 공급하는 부분만 있다.
         //Supplier 일 수 밖에 없는 이유는 애초에 null 일 경우의 동작이므로 파라미터가 넘어와봤자 null 인 것을 참조하면 오히려 피하려 했던 NPE가 발생하게 된다.
         System.out.println ( "===========================================" );
@@ -86,21 +88,26 @@ public class Optionals {
         //null 체크 없이 Optional 객체에 get() 을 호출하면 노란색 경고가 발생하는데 isPresent 검사 없는 호출이라고 한다.
         //그래서 값 검사를 해서 값을 가져오도록 해보겠다.
         if(nullOptNullable.isPresent ()){
-            System.out.println ( nullOptNullable.get ( ) ); //항상 값이 null 이므로 도달하지 못하는 구문
+            System.out.print ( nullOptNullable.get ( ) ); //항상 값이 null 이므로 도달하지 못하는 구문
         }
         if(presentOpt.isPresent ()){
-            System.out.println ( presentOpt.get ( ) ); //항상 값이 있으므로 도달하는 구문
+            System.out.print ( presentOpt.get ( ) );
+            System.out.print ( " isPresent : -> 항상 값이 있으므로 도달하는 구문\n" );
         }
         System.out.println ( "===========================================" );
 
         //ifPresent 는 값이 존재할 때 동작을 정의함
-        nullOptNullable.ifPresent ( System.out::println ); //값이 없으므로 내부 객체 값 출력 불가
-        presentOpt.ifPresent ( System.out::println ); //값이 있으므로 내부 객체 값 출력 가능
+        nullOptNullable.ifPresent ( System.out::print );
+        System.out.print ( " -> ifPresent : 값이 없으므로 내부 객체 값 출력 불가\n" );
+        presentOpt.ifPresent ( System.out::print );
+        System.out.print ( " -> ifPresent : 값이 있으므로 내부 객체 값 출력 가능\n" );
         System.out.println ( "===========================================" );
 
         //ifPresentOrElse 는 값의 존재와 부존재 모두의 동작을 정의할 수 있음
-        nullOptNullable.ifPresentOrElse ( System.out::println, () -> System.out.println ( "값이 없습니다!" ) ); //후자 출력
-        presentOpt.ifPresentOrElse ( System.out::println, () -> System.out.println ( "값이 없습니다!" ) ); //전자 출력
+        nullOptNullable.ifPresentOrElse ( System.out::print, () -> System.out.print ( "값이 없습니다!" ) );
+        System.out.print ( " -> ifPresentOrElse : 두 파라미터 중 값이 없는 객체를 참조했으므로 후자 출력\n" );
+        presentOpt.ifPresentOrElse ( System.out::print, () -> System.out.print ( "값이 없습니다!" ) );
+        System.out.print ( " -> ifPresentOrElse : 두 파라미터 중 값이 있는 객체를 참조했으므로 전자 출력\n" );
         System.out.println ( "===========================================" );
 
         //기본형 스트림과 사용하는 OptionalInt(대표 예제)
@@ -117,7 +124,6 @@ public class Optionals {
 
         Optional.ofNullable ( stringNullOrNot ).ifPresent ( System.out::println );
         //3줄 짜리 if 분기문이 하나로 줄어들었으며 가독성이 좋아지고 사용 가능한 자바 공통 처리 메서드가 많아졌다.
-
 
     }
 

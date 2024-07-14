@@ -24,28 +24,30 @@ public class SpecialStream {
 
     public static void main ( String[] args ) {
         //IntStream 예시 (모두 동일하게 1부터 10까지 순회하는 스트림이다.)
-        IntStream intStream = IntStream.of ( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ); //값을 지정해서 만드는 방법
-        IntStream range = IntStream.range ( 1, 11 ); //범위를 지정하는 방법 (range 는 마지막 파라미터 숫자를 제외)
-        IntStream rangeClosed = IntStream.rangeClosed ( 1, 10 ); //범위를 지정하는 방법 (rangeClosed는 마지막 파라미터 숫자를 포함)
+        IntStream intStream = IntStream.of ( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 );
+        IntStream range = IntStream.range ( 1, 11 );
+        IntStream rangeClosed = IntStream.rangeClosed ( 1, 10 );
         intStream.forEach ( System.out ::print );
-        System.out.println ();
+        System.out.print ( " -> 값을 지정해서 만드는 기본형 스트림\n" );
         range.forEach ( System.out ::print );
-        System.out.println ();
+        System.out.print ( " -> 범위를 지정해서 만드는 기본형 스트림(range 는 마지막 파라미터 숫자를 제외)\n" );
         rangeClosed.forEach ( System.out ::print );
-        System.out.println ();
-
+        System.out.print ( " -> 범위를 지정해서 만드는 기본형 스트림(rangeClosed는 마지막 파라미터 숫자를 포함)\n" );
+        System.out.println ( "=========================================================\n" );
         //빈 스트림 예시
         Stream <Object> empty = Stream.empty ( );
-        System.out.println ( empty.count ( ) ); //스트림이 비어있으므로 0
+        System.out.print ( empty.count ( ) );
+        System.out.print ( " -> 스트림이 비어있으므로 0\n" );
+        System.out.println ( "=========================================================\n" );
         //스트림 연결
         List <String> aToC = List.of ( "A", "B", "C" );
         List <String> dToF = List.of ( "D", "E", "F" );
         Stream <String> aToCStream = aToC.stream (); //1번 스트림
         Stream <String> dToFStream = dToF.stream (); //2번 스트림
-        Stream <String> concatStream = Stream.concat ( aToCStream, dToFStream ); //둘을 합쳐서 새로운 스트림을 만들어냄
+        Stream <String> concatStream = Stream.concat ( aToCStream, dToFStream );
         concatStream.forEach ( System.out ::print );
-        System.out.println ();
+        System.out.print ( " -> 두 스트림을 합쳐서 새로운 스트림을 만들어냄\n" );
+        System.out.println ( "연결 연산도 중간 연산이기 때문에 연산에 사용된 1번 스트림과 2번 스트림은 재사용이 불가능하다. 따라서, 아래와 같이 예외가 발생한다." );
         aToCStream.forEach ( System.out ::print );
-        //연결 연산도 중간 연산이기 때문에 연산에 사용된 1번 스트림과 2번 스트림은 재사용이 불가능하다.
     }
 }
