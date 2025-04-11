@@ -19,6 +19,7 @@ public class OtherCar extends Car {
         this.model = model;
         this.color = color;
         this.speed = speed;
+//        super( model, color, speed ); // 여기 있으면 컴파일 에러
     }
 
     /**
@@ -26,7 +27,7 @@ public class OtherCar extends Car {
      * 초기화된 값을 생성자를 만들 당시에 알 수가 없다는 점에 있다.
      *
      * 생성자를 효율적으로 만드는 추가적인 2가지 방법
-     * 1. 정적 팩토리 메서드 -> 생성자의 접근 제어자를 private으로 막고 대신 인스턴스를 생성해주는 static 메서드를 만들어서 사용한다.
+     * 1. 정적 팩토리 메서드 -> 생성자의 접근 제어자를 private 으로 막고 대신 인스턴스를 생성해주는 static 메서드를 만들어서 사용한다.
      * 2. 빌더 패턴
      * */
 
@@ -89,6 +90,7 @@ public class OtherCar extends Car {
      * 단점
      * 1. 생성자에 비해서 구현 난이도가 높고 전용 빌더 클래스가 하나 더 필요하다.
      * 2. 롬복의 빌더를 사용하는 경우 커스텀하게 만든 빌더를 사용할 수 없다.
+     * 3. 현대 IDE에서는 생성자에 대한 유효성 검증을 해주기 때문에 굳이 빌더 패턴을 사용할 필요가 없다.
      * */
 
 }

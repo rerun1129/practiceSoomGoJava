@@ -18,13 +18,13 @@ public class Main {
 //        greeting = ""; //참조 불가능
 
         System.out.println ( lastHi );
-        notMain ();
+//        notMain (); //참조 불가능
     }
 
 
-    public static void notMain(){
+    public void notMain(){
         hello = ""; //참조 가능
-//        greeting = ""; //참조 가능
+        greeting = ""; //참조 가능
         System.out.println ( Static.LAST_HI );
         /**
          * 비 static 블록에서 static 멤버를 참조하는 것은 가능하다.

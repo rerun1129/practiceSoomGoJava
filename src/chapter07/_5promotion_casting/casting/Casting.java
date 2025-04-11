@@ -28,9 +28,9 @@ public class Casting {
         Object stonee = multiCage.get ( "돌순이" );
         Object bulpee = multiCage.get ( "뻐끔이" );
         Object unknown = multiCage.get ( "???" );
-//        stonee.walk(); //Dog 타입에 있는 메서드이나 사용할 수 없다.
+//        stonee.walk(); //Dog 타입에 있는 메서드이나 사용할 수 없다. Object 는 자식 클래스인 Dog 클래스의 정보를 가지고 있지 않기 때문이다.
 
-        ((Dog)stonee).walk ( (Dog) stonee );//사용하려면 이렇게 강제로 타입을 캐스팅해줘야 한다.
+        ((Dog)stonee).walk ( (Dog) stonee );//사용하려면 이렇게 강제로 타입을 다운 캐스팅해줘야 한다.
 
 
         /**
