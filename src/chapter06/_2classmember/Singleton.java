@@ -15,11 +15,14 @@ public class Singleton {
      * Bean 인스턴스는 따로 멤버 변수나 상태값을 가지고 있지 않고 기능 동작에 필요한 메서드들만 많이 가지고 있고 매우 자주 사용되기 때문에 싱글톤을 사용하기 가장 적합한 사례이다.
      * */
 
-    private static final Singleton SINGLETON = new Singleton();
+    private static Singleton SINGLETON;
 
     private Singleton () {} //외부에서 생성자 호출을 불가능하게 막기
 
     public static Singleton getInstance() {
+        if(SINGLETON == null) { //인스턴스가 없으면 생성
+            SINGLETON = new Singleton();
+        }
         return SINGLETON; //인스턴스는 여기 하나에서만 관리한다.
     }
 }
