@@ -43,6 +43,6 @@ public class Composition {
     public static void main ( String[] args ) throws NotEnoughSpaceException {
         Container container = new Container ( 10 );
 //        container.add(); //사용 불가
-        container.put(new Luggage ());//이것만 사용 가능
+        container.put(new Luggage (5));//이것만 사용 가능
     }
 }

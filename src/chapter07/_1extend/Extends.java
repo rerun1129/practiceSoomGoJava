@@ -10,7 +10,7 @@ public class Extends {
      * 1. 단일 상속
      *    만약 비행기와 자동차를 상속 받아서 하늘을 나는 자동차를 만든다고 가정해보자. 만약 다중 상속을 사용하
      *    게 되면 하늘을 나는 자동차 입장에서 move() 를 호출할 때 어떤 부모의 move() 를 사용해야 할지 애매한 문제가 발생
-     *    한다. 이것을 다이아몬드 문제라 한다. 그리고 다중 상속을 사용하면 클래스 계층 구조가 매우 복잡해지 수 있다. 이런
+     *    한다. 이것을 다이아몬드 문제라 한다. 그리고 다중 상속을 사용하면 클래스 계층 구조가 매우 복잡해질 수 있다. 이런
      *    문제점 때문에 자바는 클래스의 다중 상속을 허용하지 않는다. 대신에 이후에 설명한 인터페이스의 다중 구현을 허용해
      *    서 이러한 문제를 피한다.
      *
@@ -64,8 +64,9 @@ public class Extends {
 
     public static void main ( String[] args ) throws NotEnoughSpaceException {
         Container container = new Container ( 10 );
-        container.put ( new Luggage () );
-        container.add ( new Luggage () );
+        container.put ( new Luggage (5) );
+        container.add ( new Luggage (6) );
+//        container.add ( new Luggage () );
     }
 
     /**

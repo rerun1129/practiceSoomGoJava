@@ -11,7 +11,6 @@ public class OverrideChild extends OverrideParent {
      *                 - private 메서드는 해당 클래스에서만 접근 가능하기 때문에 하위 클래스에서 보이지 않는다. 따라서 오버라이딩 할 수 없다.
      *              - 생성자는 오버라이딩 할 수 없다.
      * */
-
     @Override
     public void somethingPrint ( String printString ) { //부모보다 넓게 사용할 수는 있다. 예외도 마찬가지로 부모보다 더 많이 Throw 할 수 없다.
         super.somethingPrint ( printString );

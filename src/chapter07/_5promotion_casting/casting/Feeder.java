@@ -10,6 +10,7 @@ import static chapter07._5promotion_casting.casting.Feed.*;
 public class Feeder {
     public void feed ( Animal animal, Feed feed ) {
         if(animal instanceof Cat && feed == CAT_FOOD){
+            Cat cat = (Cat)animal;
             System.out.println ( "고양이가 기분 좋게 먹이를 먹습니다" );
         }else if(animal instanceof Dog && feed == DOG_FOOD){
             System.out.println ( "강아지가 기분 좋게 먹이를 먹습니다" );

@@ -29,7 +29,7 @@ public class Polymorphism {
         //그래서 부모의 정보와 자식의 정보가 충돌하게 되면 더욱 구체적인 개념인 자식의 정보로 대체를 할 수 있게 됩니다.
         //하지만 자식의 타입에 부모의 정보를 담게 되면 자식이 막상 필요한 정보는 인스턴스에 없으므로 논리가 맞지 않습니다.
 
-//        Cat cat2 = new Animal ( "없음" ); <- 불가능한 문법으로 컴파일러가 에러를 표시합니다.
+//        Cat cat2 = new Animal ( "없음" ); //<- 불가능한 문법으로 컴파일러가 에러를 표시합니다.
 
         System.out.println ( "동물이라는 개념 : " + animal.growl () );
         System.out.println ( "고양이 : " + cat.growl () );
