@@ -1,8 +1,14 @@
 package solid.ocp;
 
-public class Buds2 {
+public class Buds2 implements SoundDevices {
     public void connect() {
         System.out.println("Buds2 connected.");
+    }
+
+    @Override
+    public boolean testConnect() {
+        //블루투스 연결 체크하는 로직
+        return true;
     }
 
     public boolean adjustVolume(boolean isAdjusted) {

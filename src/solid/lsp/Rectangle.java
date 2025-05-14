@@ -24,4 +24,8 @@ public class Rectangle {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public void setHeightDouble() {
+        this.height = this.height * 2;
+    }
 }

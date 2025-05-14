@@ -1,5 +1,3 @@
 package solid.isp;
 
-public interface Printer {
-    void print(String document);
-}
+public interface Printer extends Printable, Faxable, Scannable, Copiable {}

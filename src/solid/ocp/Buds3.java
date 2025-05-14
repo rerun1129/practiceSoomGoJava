@@ -1,8 +1,8 @@
 package solid.ocp;
 
-public class Buds1 implements SoundDevices {
+public class Buds3 implements SoundDevices {
     public void connect() {
-        System.out.println("Buds1 connected.");
+        System.out.println("Buds2 connected.");
     }
 
     @Override
@@ -12,17 +12,17 @@ public class Buds1 implements SoundDevices {
     }
 
     public boolean adjustVolume(boolean isAdjusted) {
-        boolean result = detectPushBud(isAdjusted);
+        boolean result = detectTouch(isAdjusted);
         System.out.println("Volume adjusted." + result);
         return result;
     }
 
-    private boolean detectPushBud(boolean isPushed) {
-        if (isPushed) {
-            System.out.println("Push detected.");
+    private boolean detectTouch(boolean isTouched) {
+        if (isTouched) {
+            System.out.println("Touch detected.");
             return true;
         } else {
-            System.out.println("No push detected.");
+            System.out.println("No touch detected.");
             return false;
         }
     }

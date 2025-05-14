@@ -1,9 +1,15 @@
 package solid.ocp;
 
-public class WireEarphone {
+public class WireEarphone implements SoundDevices {
 
     public void connect() {
         System.out.println("Wire earphone connected.");
+    }
+
+    @Override
+    public boolean testConnect() {
+        //AUX 포트에 연결되었는지 체크하는 로직
+        return true;
     }
 
     public boolean adjustVolume(boolean isAdjusted) {
